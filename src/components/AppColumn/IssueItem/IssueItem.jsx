@@ -1,4 +1,3 @@
-import { useState } from "react";
 import style from "./IssueItem.module.scss";
 
 function IssueItem({
@@ -43,7 +42,7 @@ function IssueItem({
 
   let dragOverHandler = (e) => {
     e.preventDefault();
-    e.currentTarget.style.background = "grey";
+    e.currentTarget.style.background = "#e5eaef";
   };
 
   let dragLeaveHandler = (e) => {

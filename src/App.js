@@ -1,6 +1,4 @@
-import { useState } from "react";
 import style from "./App.module.scss";
-import AppColumn from "./components/AppColumn/AppColumn";
 import SearchingBarContainer from "./components/SearchingBar/SearchingBarContainer";
 import RepoLinkContainer from "./components/RepoLink/RepoLinkContainer";
 import ToDoContainer from "./components/ToDoColumn/ToDoContainer";
