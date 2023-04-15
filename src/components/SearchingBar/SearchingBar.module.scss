@@ -1,0 +1,30 @@
+.searchingBarContainer {
+  font-size: 18px;
+  .formContaier {
+    display: flex;
+    justify-content: space-between;
+
+    input {
+      border: 1px solid #222;
+      font-size: 16px;
+      padding: 5px;
+      background-color: #f9f9f9;
+      padding: 10px;
+      font-size: 16px;
+    }
+    input[type="text"] {
+      width: 100%;
+      margin: 0 10px 0 0;
+    }
+    .submitButton {
+      cursor: pointer;
+      transition: 0.2s;
+      &:hover {
+        background-color: #ced4da;
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+}

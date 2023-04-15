@@ -1,23 +1,22 @@
-import logo from "./logo.svg";
+import { useState } from "react";
 import style from "./App.module.scss";
+import AppColumn from "./components/AppColumn/AppColumn";
+import SearchingBarContainer from "./components/SearchingBar/SearchingBarContainer";
+import RepoLinkContainer from "./components/RepoLink/RepoLinkContainer";
+import ToDoContainer from "./components/ToDoColumn/ToDoContainer";
+import InProgressContainer from "./components/InProgressColumn/InProgressContainer";
+import DoneContainer from "./components/DoneColumn/DoneContainer";
 
 function App() {
   return (
-    <div className={style.app}>
-      <header className={style.app_header}>
-        <img src={logo} className={style.app_logo} alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className={style.app_link}
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style.appContainer}>
+      <SearchingBarContainer />
+      <RepoLinkContainer />
+      <div className={style.columnsContiner}>
+        <ToDoContainer />
+        <InProgressContainer />
+        <DoneContainer />
+      </div>
     </div>
   );
 }

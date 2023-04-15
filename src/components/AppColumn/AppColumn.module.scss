@@ -1,0 +1,31 @@
+.appColumnContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  h2 {
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 20px;
+    margin: 0 0 5px 0;
+    position: sticky;
+    top: -8px;
+    background: #b2b8bf;
+    border-radius: 10px;
+    padding: 10px 0;
+    border: aliceblue solid 1px;
+  }
+  .issuesContainer {
+    background-color: #ced4da;
+    padding: 1px 10px;
+    height: -webkit-fill-available;
+    border-radius: 10px;
+  }
+  .noInformation {
+    position: absolute;
+    font-size: 14px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+  }
+}

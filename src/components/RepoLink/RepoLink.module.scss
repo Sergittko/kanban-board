@@ -1,0 +1,21 @@
+.repoLinkContainer {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  a {
+    text-transform: capitalize;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .pathChar {
+    margin: 0 5px;
+  }
+  img {
+    width: 20px;
+    padding: 2px;
+    height: fit-content;
+    margin: 0 0 0 20px;
+  }
+}
