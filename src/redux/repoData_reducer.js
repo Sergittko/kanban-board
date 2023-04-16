@@ -2,10 +2,12 @@ import { getRepoData } from "../api/api";
 
 const SET_REPO_URL = "SET_REPO_URL";
 const SET_REPO_DATA = "SET_REPO_DATA";
+const SET_REPO_FETCHING = "SET_REPO_FETCHING";
 
 const initialState = {
   repoUrl: null,
   repositoryData: null,
+  isRepoFetching: false,
 };
 
 const setRepoData = (repoData) => ({
@@ -18,9 +20,16 @@ export const setRepoUrl = (repoUrl) => ({
   repoUrl,
 });
 
-export const getRepositoryData = (link) => async (dispatch) => {
-  let repoData = await getRepoData(link);
-  dispatch(setRepoData(repoData));
+export const setRepoFetching = (fetching) => ({
+  type: SET_REPO_FETCHING,
+  fetching,
+});
+
+export const getRepositoryData = (link) => (dispatch) => {
+  dispatch(setRepoFetching(true));
+  getRepoData(link)
+    .then((repoData) => dispatch(setRepoData(repoData)))
+    .then(() => dispatch(setRepoFetching(false)));
 };
 
 const repoDataReducer = (state = initialState, action) => {
@@ -35,6 +44,12 @@ const repoDataReducer = (state = initialState, action) => {
       return {
         ...state,
         repositoryData: action.repoData,
+      };
+
+    case SET_REPO_FETCHING:
+      return {
+        ...state,
+        isRepoFetching: action.fetching,
       };
 
     default:

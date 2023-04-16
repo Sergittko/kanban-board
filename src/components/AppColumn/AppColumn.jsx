@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import style from "./AppColumn.module.scss";
 import IssueItem from "./IssueItem/IssueItem";
+import preloader from "../../assets/preloader.gif";
 
-function AppColumn({ title, issuesData, columnId }) {
+function AppColumn({ title, issuesData, columnId, isRepoFetching }) {
   let [issues, setIssues] = useState(issuesData);
   let [grabbinIssue, setGrabbinIssue] = useState(null);
   useEffect(() => {
@@ -13,7 +14,7 @@ function AppColumn({ title, issuesData, columnId }) {
     <div className={style.appColumnContainer}>
       <h2>{title}</h2>
       <ul className={style.issuesContainer}>
-        {issues ? (
+        {!isRepoFetching && issues ? (
           issues.map((issueItem) => {
             return (
               <IssueItem
@@ -32,7 +33,17 @@ function AppColumn({ title, issuesData, columnId }) {
             );
           })
         ) : (
-          <span className={style.noInformation}>No information</span>
+          <div className={style.noInformation}>
+            {isRepoFetching ? (
+              <img
+                src={preloader}
+                alt="preloader"
+                className={style.preloader}
+              />
+            ) : (
+              "No information"
+            )}
+          </div>
         )}
       </ul>
     </div>

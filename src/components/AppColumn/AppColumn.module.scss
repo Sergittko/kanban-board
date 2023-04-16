@@ -27,5 +27,12 @@
     top: 50%;
     transform: translate(-50%, -50%);
     text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+
+    .preloader {
+      width: 240%;
+      transform: rotate(90deg);
+    }
   }
 }
