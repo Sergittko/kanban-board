@@ -12,6 +12,20 @@ function IssueItem({
   grabbinIssue,
   columnId,
 }) {
+  const created = new Date(created_at);
+  const today = new Date();
+  const dateCreated = created.getDate();
+  const dateToday = today.getDate();
+  const monthCreated = created.getMonth();
+  const monthToday = today.getMonth();
+  let daysPast = null;
+  if (monthCreated === monthToday) {
+    if (dateToday - dateCreated === 0) daysPast = "today";
+    if (dateToday - dateCreated === 1) daysPast = "yesterday";
+    if (dateToday - dateCreated > 1)
+      daysPast = `${dateToday - dateCreated} days ago`;
+  }
+
   let dragStartHandler = (e, issue) => {
     setGrabbinIssue({
       ...issue,
@@ -73,7 +87,7 @@ function IssueItem({
       <h4 className={style.issueTitle}>{title}</h4>
       <div className={style.issueData}>
         <span>#{number}</span>
-        <span>opened {[...created_at].splice(0, 10)}</span>
+        <span>opened {daysPast || [...created_at].splice(0, 10)}</span>
       </div>
       <div className={style.issueInfo}>
         <span>{user.login}</span>
