@@ -15,7 +15,7 @@ function SearchingBar({ getIssuesData, setRepoUrl, getRepositoryData }) {
       if (url.host !== "github.com") return;
       let pathname = url.pathname.slice(1);
       setRepoUrl(url);
-      getIssuesData(pathname);
+      getIssuesData(pathname, url.href);
       getRepositoryData(pathname);
     }
   };

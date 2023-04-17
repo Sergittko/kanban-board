@@ -1,4 +1,5 @@
 import { getNewIssues, getInProgressIssues, getDoneIssues } from "../api/api";
+import { getStoredRepo } from "../api/sessionStorageApi";
 
 const SET_TODO_ISSUES = "SET_TODO_ISSUES";
 const SET_IN_PROGRESS_ISSUES = "SET_IN_PROGRESS_ISSUES";
@@ -25,13 +26,16 @@ const setDoneIssues = (issuesData) => ({
   issuesData,
 });
 
-export const getIssuesData = (link) => async (dispatch) => {
+export const getIssuesData = (link, href) => async (dispatch) => {
+  let storedRepo = getStoredRepo(href);
   let newIssuesData = await getNewIssues(link);
   let inProgressIssuesData = await getInProgressIssues(link);
   let doneIssuesData = await getDoneIssues(link);
-  dispatch(setToDoIssues(newIssuesData));
-  dispatch(setInProgressIssues(inProgressIssuesData));
-  dispatch(setDoneIssues(doneIssuesData));
+  dispatch(setToDoIssues(storedRepo?.toDoIssues || newIssuesData));
+  dispatch(
+    setInProgressIssues(storedRepo?.inProgressIssues || inProgressIssuesData)
+  );
+  dispatch(setDoneIssues(storedRepo?.doneIssues || doneIssuesData));
 };
 
 const issuesReducer = (state = initialState, action) => {

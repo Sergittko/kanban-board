@@ -15,11 +15,13 @@ let RepoLinkContainer = (props) => {
     </span>
   );
 };
+
 let mapStateToProps = (state) => {
   return {
     repoUrl: state.repoData.repoUrl,
     repoData: state.repoData.repositoryData,
   };
 };
+
 RepoLinkContainer = connect(mapStateToProps, {})(RepoLinkContainer);
 export default RepoLinkContainer;
