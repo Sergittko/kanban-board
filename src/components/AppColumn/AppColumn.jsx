@@ -11,12 +11,14 @@ function AppColumn({
   isRepoFetching,
   repoUrl,
   issueCategory,
+  setRepoFetching,
 }) {
   sessionStorage.setItem("repoHistory", "[]");
   let [issues, setIssues] = useState(issuesData);
   let [grabbinIssue, setGrabbinIssue] = useState(null);
   useEffect(() => {
     setIssues(issuesData);
+    setRepoFetching(false);
   }, [issuesData]);
 
   issues && repoUrl && setSessionData(repoUrl, issueCategory, issues);

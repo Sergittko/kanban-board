@@ -27,9 +27,8 @@ export const setRepoFetching = (fetching) => ({
 
 export const getRepositoryData = (link) => (dispatch) => {
   dispatch(setRepoFetching(true));
-  getRepoData(link)
-    .then((repoData) => dispatch(setRepoData(repoData)))
-    .then(() => dispatch(setRepoFetching(false)));
+  getRepoData(link).then((repoData) => dispatch(setRepoData(repoData)));
+  // .then(() => dispatch(setRepoFetching(false)));
 };
 
 const repoDataReducer = (state = initialState, action) => {

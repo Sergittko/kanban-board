@@ -1,7 +1,13 @@
 import { connect } from "react-redux";
 import AppColumn from "../AppColumn/AppColumn";
+import { setRepoFetching } from "../../redux/repoData_reducer";
 
-let InProgressContainer = ({ inProgressIssues, isRepoFetching, repoUrl }) => {
+let InProgressContainer = ({
+  inProgressIssues,
+  isRepoFetching,
+  repoUrl,
+  setRepoFetching,
+}) => {
   return (
     <AppColumn
       title={"In Progress"}
@@ -10,6 +16,7 @@ let InProgressContainer = ({ inProgressIssues, isRepoFetching, repoUrl }) => {
       issuesData={inProgressIssues}
       isRepoFetching={isRepoFetching}
       repoUrl={repoUrl}
+      setRepoFetching={setRepoFetching}
     />
   );
 };
@@ -20,5 +27,7 @@ let mapStateToProps = (state) => {
     repoUrl: state.repoData.repoUrl,
   };
 };
-InProgressContainer = connect(mapStateToProps, {})(InProgressContainer);
+InProgressContainer = connect(mapStateToProps, { setRepoFetching })(
+  InProgressContainer
+);
 export default InProgressContainer;

@@ -1,7 +1,13 @@
 import { connect } from "react-redux";
 import AppColumn from "../AppColumn/AppColumn";
+import { setRepoFetching } from "../../redux/repoData_reducer";
 
-let ToDoContainer = ({ toDoIssues, isRepoFetching, repoUrl }) => {
+let ToDoContainer = ({
+  toDoIssues,
+  isRepoFetching,
+  repoUrl,
+  setRepoFetching,
+}) => {
   return (
     <AppColumn
       title={"ToDo"}
@@ -10,6 +16,7 @@ let ToDoContainer = ({ toDoIssues, isRepoFetching, repoUrl }) => {
       issuesData={toDoIssues}
       isRepoFetching={isRepoFetching}
       repoUrl={repoUrl}
+      setRepoFetching={setRepoFetching}
     />
   );
 };
@@ -20,5 +27,5 @@ let mapStateToProps = (state) => {
     repoUrl: state.repoData.repoUrl,
   };
 };
-ToDoContainer = connect(mapStateToProps, {})(ToDoContainer);
+ToDoContainer = connect(mapStateToProps, { setRepoFetching })(ToDoContainer);
 export default ToDoContainer;
