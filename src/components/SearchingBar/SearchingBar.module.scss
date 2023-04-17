@@ -7,17 +7,31 @@
     input {
       border: 1px solid #222;
       font-size: 16px;
-      padding: 5px;
       background-color: #f9f9f9;
       padding: 10px;
       font-size: 16px;
     }
-    input[type="text"] {
+    .searchingInput {
+      position: relative;
       width: 100%;
       margin: 0 10px 0 0;
+      input[type="text"] {
+        padding: 10px 35px 10px 10px;
+        width: 100%;
+      }
+      img {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 20px;
+        margin: auto;
+        cursor: pointer;
+      }
     }
     .submitButton {
       cursor: pointer;
+      padding: 10px;
       transition: 0.2s;
       &:hover {
         background-color: #ced4da;

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import style from "./SearchingBar.module.scss";
+import cross from "../../assets/cross.png";
 
 function SearchingBar({ getIssuesData, setRepoUrl, getRepositoryData }) {
   let [inputText, setNewText] = useState("");
@@ -23,13 +24,18 @@ function SearchingBar({ getIssuesData, setRepoUrl, getRepositoryData }) {
   return (
     <div className={style.searchingBarContainer}>
       <form className={style.formContaier} onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={inputText}
-          name="urlInput"
-          onChange={(e) => setNewText(e.target.value)}
-          placeholder="Enter repo URL"
-        />
+        <div className={style.searchingInput}>
+          <input
+            type="text"
+            value={inputText}
+            name="urlInput"
+            onChange={(e) => setNewText(e.target.value)}
+            placeholder="Enter repo URL"
+          />
+          {inputText.length > 2 && (
+            <img src={cross} alt="cross" onClick={() => setNewText("")} />
+          )}
+        </div>
         <input
           type="submit"
           value="Load issues"
