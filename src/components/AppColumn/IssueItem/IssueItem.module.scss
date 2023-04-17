@@ -5,6 +5,7 @@
   padding: 10px;
   margin: 10px 0;
   transition: 0.2s;
+  animation: fadeUp 0.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   cursor: grab;
 
   &:active {
@@ -35,5 +36,15 @@
     .stick {
       margin: 0 10px;
     }
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
