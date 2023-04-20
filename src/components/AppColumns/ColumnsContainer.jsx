@@ -37,6 +37,7 @@ let ColumnsContainer = ({
       },
     ]);
     setRepoFetching(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toDoIssues, inProgressIssues, doneIssues]);
 
   return (
