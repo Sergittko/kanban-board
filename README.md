@@ -1,2 +1,2 @@
 # Kanban-board project
-## GH Pages: https://sergittko.github.io/kanban-board/
+* GH Pages: [kanban-board.io](https://sergittko.github.io/kanban-board/)
