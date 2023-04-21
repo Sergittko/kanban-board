@@ -31,8 +31,9 @@ function AppColumn({
       return prev.map((item) => {
         if (column.columnId === item.columnId && item.issues.length === 0) {
           addedToEmpty = true;
-          item.issues[0] = grabbinIssue;
-          return item;
+          let newColumn = item;
+          newColumn.issues[0] = grabbinIssue;
+          return newColumn;
         }
 
         // if (
