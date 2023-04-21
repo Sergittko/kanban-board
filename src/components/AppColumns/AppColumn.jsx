@@ -28,6 +28,7 @@ function AppColumn({
     const grabbingIndex = grabbinColumn.issues.indexOf(grabbinIssue);
     setColumns((prev) => {
       let addedToEmpty = column.issues.length === 0;
+
       return prev.map((item) => {
         if (column.columnId === item.columnId && item.issues.length === 0) {
           addedToEmpty = true;
@@ -36,15 +37,24 @@ function AppColumn({
           return newColumn;
         }
 
-        // if (
-        //   column.columnId === item.columnId &&
-        //   column.issues.indexOf(grabbinIssue) === -1 &&
-        //   item.issues.length !== 0
-        // ) {
-        //   addedToEmpty = true;
-        //   item.issues.push(grabbinIssue);
-        //   return item;
-        // }
+        if (
+          column.columnId === item.columnId &&
+          column.issues.indexOf(grabbinIssue) === -1 &&
+          item.issues.length !== 0
+        ) {
+          addedToEmpty = true;
+          let newColumn = { ...item };
+          newColumn.issues.push(grabbinIssue);
+          return newColumn;
+        }
+
+        if (
+          grabbinColumn.columnId === item.columnId &&
+          column.issues.indexOf(grabbinIssue) === -1 &&
+          item.issues.length !== 0
+        ) {
+          addedToEmpty = true;
+        }
 
         if (
           grabbinColumn.columnId === item.columnId &&
