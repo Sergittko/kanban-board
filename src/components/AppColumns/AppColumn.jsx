@@ -25,9 +25,9 @@ function AppColumn({
 
   let dropIssueHandler = (e, column) => {
     e.preventDefault();
-    let addedToEmpty = false;
     const grabbingIndex = grabbinColumn.issues.indexOf(grabbinIssue);
     setColumns((prev) => {
+      let addedToEmpty = column.issues.length === 0;
       return prev.map((item) => {
         if (column.columnId === item.columnId && item.issues.length === 0) {
           addedToEmpty = true;
