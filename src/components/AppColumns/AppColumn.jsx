@@ -34,15 +34,15 @@ function AppColumn({
           return item.issues.push(grabbinIssue);
         }
 
-        if (
-          column.columnId === item.columnId &&
-          column.issues.indexOf(grabbinIssue) === -1 &&
-          item.issues.length !== 0
-        ) {
-          addedToEmpty = true;
-          item.issues.push(grabbinIssue);
-          return item;
-        }
+        // if (
+        //   column.columnId === item.columnId &&
+        //   column.issues.indexOf(grabbinIssue) === -1 &&
+        //   item.issues.length !== 0
+        // ) {
+        //   addedToEmpty = true;
+        //   item.issues.push(grabbinIssue);
+        //   return item;
+        // }
 
         if (
           grabbinColumn.columnId === item.columnId &&
